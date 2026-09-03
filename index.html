@@ -3,12 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>YoneAI — IA aplicada a negócios reais</title>
-  <meta name="description" content="Oscar Yonesake — engenheiro, fundador da YoneAI. Décadas de experiência em gestão e processos, agora orquestrando inteligência artificial para resolver problemas reais." />
+  <title id="doc-title">Oscar Yonesake — Executivo Operacional. Construtor de Sistemas de IA.</title>
+  <meta id="doc-desc" name="description" content="40 anos gerindo operações em multinacionais. Hoje projeto e construo os sistemas de IA que realmente se encaixam em como o negócio funciona. Disponível para consultoria e projetos remotos." />
   <link rel="icon" type="image/svg+xml" href="favicon-yoneai.svg" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    [hidden] { display: none !important; }
 
     :root {
       --fundo: #FAF9F5;
@@ -61,10 +63,7 @@
       letter-spacing: 0.02em;
     }
 
-    .nav-logo-mark {
-      display: block;
-      flex-shrink: 0;
-    }
+    .nav-logo-mark { display: block; flex-shrink: 0; }
 
     .nav-logo-ai {
       font-family: var(--fonte-mono);
@@ -76,7 +75,7 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 2.25rem;
+      gap: 2rem;
       list-style: none;
     }
 
@@ -101,12 +100,23 @@
 
     .nav-links .nav-cta:hover { color: var(--on-acento); opacity: 0.85; }
 
-    /* SEÇÕES */
-    .container {
-      max-width: 880px;
-      margin: 0 auto;
-      padding: 0 2.5rem;
+    #lang-toggle {
+      font-family: var(--fonte-mono);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: var(--texto-sec);
+      background: transparent;
+      border: 1px solid var(--borda-forte);
+      padding: 0.4rem 0.65rem;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
     }
+
+    #lang-toggle:hover { border-color: var(--acento); color: var(--acento); }
+
+    /* SEÇÕES */
+    .container { max-width: 880px; margin: 0 auto; padding: 0 2.5rem; }
 
     .section-label {
       display: flex;
@@ -121,12 +131,7 @@
       margin-bottom: 1rem;
     }
 
-    .section-label::before {
-      content: '';
-      width: 24px;
-      height: 1px;
-      background: var(--acento);
-    }
+    .section-label::before { content: ''; width: 24px; height: 1px; background: var(--acento); }
 
     h2 {
       font-family: var(--fonte-titulo);
@@ -135,8 +140,11 @@
       color: var(--texto);
       line-height: 1.25;
       margin-bottom: 2.5rem;
-      max-width: 620px;
+      max-width: 680px;
     }
+
+    section { padding: 6.5rem 2.5rem; border-top: 1px solid var(--borda); }
+    section.alt { background: var(--fundo-alt); }
 
     /* HERO */
     #hero {
@@ -146,6 +154,7 @@
       padding: 8rem 2.5rem 5rem;
       position: relative;
       overflow: hidden;
+      border-top: none;
       background-image:
         linear-gradient(rgba(26, 25, 24, 0.045) 1px, transparent 1px),
         linear-gradient(90deg, rgba(26, 25, 24, 0.045) 1px, transparent 1px);
@@ -163,27 +172,10 @@
 
     .hero-inner { max-width: 880px; margin: 0 auto; width: 100%; position: relative; z-index: 1; }
 
-    .hero-logo {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 2.75rem;
-    }
-
+    .hero-logo { display: flex; align-items: center; gap: 16px; margin-bottom: 2.75rem; }
     .hero-logo-mark { width: 46px; height: auto; flex-shrink: 0; }
-
-    .hero-logo-text {
-      font-family: var(--fonte-titulo);
-      font-size: 2.1rem;
-      font-weight: 500;
-      color: var(--texto);
-    }
-
-    .hero-logo-text .ai {
-      font-family: var(--fonte-mono);
-      color: var(--acento);
-      font-weight: 600;
-    }
+    .hero-logo-text { font-family: var(--fonte-titulo); font-size: 2.1rem; font-weight: 500; color: var(--texto); }
+    .hero-logo-text .ai { font-family: var(--fonte-mono); color: var(--acento); font-weight: 600; }
 
     .hero h1 {
       font-family: var(--fonte-titulo);
@@ -195,17 +187,8 @@
       max-width: 780px;
     }
 
-    .hero h1 em {
-      color: var(--acento);
-      font-style: italic;
-    }
-
-    .hero-sub {
-      font-size: 17.5px;
-      color: var(--texto-sec);
-      max-width: 520px;
-      margin-bottom: 2.75rem;
-    }
+    .hero-sub { font-size: 17.5px; color: var(--texto-sec); max-width: 540px; margin-bottom: 1rem; }
+    .hero-location { font-family: var(--fonte-mono); font-size: 12.5px; color: var(--texto-small); margin-bottom: 2.75rem; }
 
     .btn-primary {
       display: inline-block;
@@ -216,9 +199,8 @@
       font-weight: 600;
       letter-spacing: 0.03em;
       text-decoration: none;
-      transition: opacity 0.2s, transform 0.2s;
+      transition: opacity 0.2s;
     }
-
     .btn-primary:hover { opacity: 0.88; }
 
     .btn-outline {
@@ -232,310 +214,118 @@
       text-decoration: none;
       transition: border-color 0.2s, color 0.2s;
     }
+    .btn-outline:hover { border-color: var(--acento); color: var(--acento); }
 
-    .btn-outline:hover {
-      border-color: var(--acento);
-      color: var(--acento);
-    }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 4.5rem; }
 
-    .hero-btns {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 4.5rem;
-    }
+    .hero-stats { display: flex; gap: 3rem; flex-wrap: wrap; padding-top: 2.25rem; border-top: 1px solid var(--borda); }
+    .stat-num { font-family: var(--fonte-mono); font-size: 2.1rem; font-weight: 500; color: var(--texto); line-height: 1; }
+    .stat-label { font-size: 12.5px; color: var(--texto-small); font-weight: 500; letter-spacing: 0.03em; margin-top: 10px; }
 
-    .hero-stats {
-      display: flex;
-      gap: 3rem;
-      flex-wrap: wrap;
-      padding-top: 2.25rem;
-      border-top: 1px solid var(--borda);
-    }
-
-    .stat-num {
-      font-family: var(--fonte-mono);
-      font-size: 2.1rem;
-      font-weight: 500;
-      color: var(--texto);
-      line-height: 1;
-    }
-
-    .stat-label {
-      font-size: 12.5px;
-      color: var(--texto-small);
-      font-weight: 500;
-      letter-spacing: 0.03em;
-      margin-top: 10px;
-    }
-
-    /* SOBRE */
-    #sobre {
-      padding: 6.5rem 2.5rem;
-      border-top: 1px solid var(--borda);
-    }
-
-    .sobre-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 620px);
-    }
-
-    .sobre-foto {
-      float: right;
-      width: 260px;
-      margin: 0 0 1.75rem 2.5rem;
-      padding: 8px;
-      background: var(--fundo-card);
-      border: 1px solid var(--borda-forte);
-    }
-
-    .sobre-foto img {
-      width: 100%;
-      display: block;
-    }
-
-    .sobre-foto figcaption {
-      font-family: var(--fonte-mono);
-      font-size: 10.5px;
-      color: var(--texto-small);
-      letter-spacing: 0.04em;
-      text-align: center;
-      margin-top: 10px;
-    }
-
-    .sobre-texto p {
-      font-size: 17px;
-      color: var(--texto-sec);
-      margin-bottom: 1.25rem;
-      max-width: 620px;
-    }
-
-    .sobre-texto p:last-child { margin-bottom: 0; }
-
-    .sobre-destaque {
-      background: var(--fundo-alt);
-      border-left: 2px solid var(--acento);
-      padding: 1.75rem 2rem;
-      margin: 2.25rem 0;
-      max-width: 620px;
-    }
-
-    .sobre-destaque p {
-      font-size: 17px;
-      color: var(--texto-sec);
-      margin-bottom: 1rem;
-    }
-
-    .sobre-destaque p:last-child {
-      margin-bottom: 0;
-      color: var(--texto);
-      font-weight: 500;
-    }
-
-    .sobre-conclusao {
+    /* PROSE BLOCKS */
+    .lede {
       font-family: var(--fonte-titulo);
       font-style: italic;
-      font-size: 20px;
+      font-size: clamp(1.35rem, 2.2vw, 1.7rem);
       color: var(--texto);
-      max-width: 620px;
-      margin-top: 1.5rem;
-    }
-
-    /* PRODUTOS */
-    #produtos {
-      padding: 6.5rem 2.5rem;
-      background: var(--fundo-alt);
-      border-top: 1px solid var(--borda);
-    }
-
-    .produtos-grid {
-      display: grid;
-      gap: 1px;
-      background: var(--borda);
-      border: 1px solid var(--borda);
-    }
-
-    .produto-card {
-      background: var(--fundo-card);
-      padding: 2.25rem 2.25rem;
-      position: relative;
-    }
-
-    .produto-card.destaque {
-      background: linear-gradient(180deg, rgba(147,115,62,0.06), transparent 40%), var(--fundo-card);
-    }
-
-    .produto-card.destaque::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      height: 2px;
-      background: var(--acento);
-    }
-
-    .produto-card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 1rem;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .produto-numero {
-      font-family: var(--fonte-mono);
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--acento);
-      font-weight: 500;
-      margin-bottom: 8px;
-    }
-
-    .produto-nome {
-      font-family: var(--fonte-titulo);
-      font-size: 1.5rem;
-      font-weight: 400;
-      color: var(--texto);
-    }
-
-    .produto-nome.menor {
-      font-size: 1.25rem;
-    }
-
-    .produto-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-family: var(--fonte-mono);
-      font-size: 11.5px;
-      color: var(--texto-sec);
-      font-weight: 500;
-      padding: 5px 10px;
-      background: rgba(26,25,24,0.035);
-      border: 1px solid var(--borda);
-      white-space: nowrap;
-    }
-
-    .badge-dot {
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: #4E9660;
-      flex-shrink: 0;
-    }
-
-    .produto-desc {
-      font-size: 16px;
-      color: var(--texto-sec);
-      line-height: 1.75;
+      max-width: 700px;
       margin-bottom: 1.5rem;
-      max-width: 600px;
     }
+    .prose p { font-size: 17px; color: var(--texto-sec); max-width: 680px; margin-bottom: 1.1rem; }
+    .prose p:last-child { margin-bottom: 0; }
 
-    .produto-resultado {
-      display: flex;
-      align-items: baseline;
-      gap: 8px;
-      font-size: 13px;
-      color: var(--texto-small);
-      border-top: 1px solid var(--borda);
-      padding-top: 1rem;
-      margin-bottom: 1.25rem;
+    /* HOW I WORK — steps */
+    .steps { display: grid; gap: 1px; background: var(--borda); border: 1px solid var(--borda); grid-template-columns: repeat(3, 1fr); }
+    .step { background: var(--fundo-card); padding: 2rem 1.75rem; }
+    .step-num { font-family: var(--fonte-mono); font-size: 11px; letter-spacing: 0.1em; color: var(--acento); font-weight: 600; margin-bottom: 0.75rem; }
+    .step-title { font-family: var(--fonte-titulo); font-size: 1.2rem; margin-bottom: 0.5rem; }
+    .step-desc { font-size: 15px; color: var(--texto-sec); }
+
+    /* PROOF */
+    .proof-card {
+      background: var(--fundo-card);
+      border: 1px solid var(--borda-forte);
+      border-left: 2px solid var(--acento);
+      padding: 2rem 2.25rem;
+      max-width: 700px;
     }
+    .proof-row { margin-bottom: 1.25rem; }
+    .proof-row:last-child { margin-bottom: 0; }
+    .proof-label { font-family: var(--fonte-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--acento); font-weight: 600; margin-bottom: 0.4rem; }
+    .proof-row p { font-size: 16px; color: var(--texto-sec); }
 
-    .produto-resultado strong {
-      font-family: var(--fonte-mono);
-      color: var(--acento);
-      font-weight: 500;
-    }
+    /* WHAT I BRING */
+    .bring-grid { display: grid; gap: 1px; background: var(--borda); border: 1px solid var(--borda); grid-template-columns: repeat(3, 1fr); }
+    .bring-card { background: var(--fundo-card); padding: 2rem 1.75rem; }
+    .bring-tag { font-family: var(--fonte-mono); font-size: 11px; letter-spacing: 0.1em; color: var(--acento); font-weight: 600; margin-bottom: 0.75rem; }
+    .bring-title { font-family: var(--fonte-titulo); font-size: 1.15rem; margin-bottom: 0.5rem; }
+    .bring-desc { font-size: 15px; color: var(--texto-sec); }
 
-    .produto-card.pequeno {
+    /* WHAT I'VE BUILT */
+    .built-lede { font-size: 17px; color: var(--texto-sec); max-width: 640px; margin-bottom: 2.25rem; }
+    .built-grid { display: grid; gap: 1px; background: var(--borda); border: 1px solid var(--borda); }
+    .built-card {
+      background: var(--fundo-card);
+      padding: 1.75rem 2.25rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
       gap: 1rem;
     }
+    .built-name { font-family: var(--fonte-titulo); font-size: 1.3rem; margin-bottom: 0.4rem; }
+    .built-desc { font-size: 15.5px; color: var(--texto-sec); max-width: 520px; }
+    .built-link { font-size: 13.5px; color: var(--acento); font-weight: 600; letter-spacing: 0.02em; text-decoration: none; white-space: nowrap; }
+    .built-link:hover { opacity: 0.7; }
+    .built-nolink { font-family: var(--fonte-mono); font-size: 11.5px; color: var(--texto-small); white-space: nowrap; }
 
-    .produto-card.pequeno .produto-desc {
-      font-size: 15px;
-      margin-bottom: 0;
+    /* WHAT I'M LOOKING FOR */
+    .looking-list { list-style: none; max-width: 680px; margin: 1.5rem 0 1.75rem; }
+    .looking-list li {
+      position: relative;
+      padding-left: 1.5rem;
+      font-size: 16.5px;
+      color: var(--texto-sec);
+      margin-bottom: 0.9rem;
     }
-
-    .produto-link {
-      font-size: 13.5px;
+    .looking-list li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
       color: var(--acento);
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      text-decoration: none;
-      transition: opacity 0.2s;
     }
-
-    .produto-link:hover { opacity: 0.7; }
+    .looking-close {
+      font-family: var(--fonte-titulo);
+      font-style: italic;
+      font-size: 19px;
+      color: var(--texto);
+      max-width: 640px;
+    }
 
     /* CONTATO */
-    #contato {
-      padding: 6.5rem 2.5rem;
-      border-top: 1px solid var(--borda);
-    }
-
-    .contato-sub {
-      font-size: 17px;
-      color: var(--texto-sec);
-      max-width: 500px;
-      margin-bottom: 2.75rem;
-    }
-
-    .contato-btns {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
+    .contato-sub { font-size: 17px; color: var(--texto-sec); max-width: 520px; margin-bottom: 2.75rem; }
+    .contato-btns { display: flex; flex-wrap: wrap; gap: 12px; }
 
     /* FOOTER */
-    footer {
-      background: var(--fundo-alt);
-      border-top: 1px solid var(--borda);
-      padding: 2rem 2.5rem;
-    }
-
-    .footer-inner {
-      max-width: 880px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    footer p {
-      font-family: var(--fonte-mono);
-      font-size: 12px;
-      color: var(--texto-small);
-    }
-
-    footer a {
-      color: var(--texto-small);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
+    footer { background: var(--fundo-alt); border-top: 1px solid var(--borda); padding: 2rem 2.5rem; }
+    .footer-inner { max-width: 880px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    footer p { font-family: var(--fonte-mono); font-size: 12px; color: var(--texto-small); }
+    footer a { color: var(--texto-small); text-decoration: none; transition: color 0.2s; }
     footer a:hover { color: var(--acento); }
 
     /* RESPONSIVE */
+    @media (max-width: 760px) {
+      .steps, .bring-grid { grid-template-columns: 1fr; }
+    }
     @media (max-width: 640px) {
       nav { padding: 1rem 1.5rem; }
-      .nav-links { gap: 1.25rem; }
-      .nav-links a:not(.nav-cta) { display: none; }
-      #hero, #sobre, #produtos, #contato { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .nav-links { gap: 1rem; }
+      .nav-links a:not(.nav-cta):not(#lang-toggle) { display: none; }
+      #hero, section { padding-left: 1.5rem; padding-right: 1.5rem; }
       .hero-stats { gap: 1.75rem; }
-      .produto-card.pequeno { flex-direction: column; align-items: flex-start; }
+      .built-card { flex-direction: column; align-items: flex-start; }
       footer { padding: 1.5rem; }
       .footer-inner { flex-direction: column; align-items: flex-start; }
-      .sobre-foto { float: none; width: 100%; max-width: 320px; margin: 0 0 1.75rem; }
     }
   </style>
 </head>
@@ -559,9 +349,10 @@
       Yone<span class="nav-logo-ai">AI</span>
     </a>
     <ul class="nav-links">
-      <li><a href="#sobre">Sobre</a></li>
-      <li><a href="#produtos">Produtos</a></li>
-      <li><a href="#contato" class="nav-cta">Contato</a></li>
+      <li><a href="#how"><span data-lang-pt>Como trabalho</span><span data-lang-en hidden>How I work</span></a></li>
+      <li><a href="#built"><span data-lang-pt>O que construí</span><span data-lang-en hidden>What I've built</span></a></li>
+      <li><button id="lang-toggle" type="button">EN</button></li>
+      <li><a href="#contact" class="nav-cta"><span data-lang-pt>Contato</span><span data-lang-en hidden>Contact</span></a></li>
     </ul>
   </nav>
 
@@ -583,116 +374,227 @@
         </svg>
         <span class="hero-logo-text">Yone<span class="ai">AI</span></span>
       </div>
-      <p class="section-label">YoneAI — IA aplicada a negócios reais</p>
-      <h1>IA poderosa nas mãos de quem<br><em>conhece os processos por dentro.</em></h1>
-      <p class="hero-sub">Eu sempre soube o que precisava ser feito — só não conseguia executar. Os avanços dos modelos de IA quebraram essa barreira: hoje transformo décadas de experiência em soluções reais.</p>
+
+      <div data-lang-pt>
+        <p class="section-label">Oscar Yonesake</p>
+        <h1>40 anos gerindo operações.<br>Hoje eu construo os sistemas de IA<br>que realmente se encaixam nelas.</h1>
+        <p class="hero-sub">Experiência executiva em multinacionais, somada à construção prática de automação e IA.</p>
+        <p class="hero-location">São Paulo, Brasil — atuação remota, para qualquer lugar.</p>
+      </div>
+      <div data-lang-en hidden>
+        <p class="section-label">Oscar Yonesake</p>
+        <h1>40 years running operations.<br>Now I build the AI systems<br>that actually fit them.</h1>
+        <p class="hero-sub">Executive experience across multinational manufacturing, paired with hands-on AI and automation development.</p>
+        <p class="hero-location">São Paulo, Brazil — working remotely, worldwide.</p>
+      </div>
+
       <div class="hero-btns">
-        <a href="#produtos" class="btn-primary">Ver os produtos →</a>
+        <a href="#contact" class="btn-primary"><span data-lang-pt>Fale comigo →</span><span data-lang-en hidden>Get in touch →</span></a>
         <a href="https://linkedin.com/in/mentor-kenichi" target="_blank" rel="noopener" class="btn-outline">LinkedIn</a>
       </div>
+
       <div class="hero-stats">
         <div>
           <p class="stat-num">03</p>
-          <p class="stat-label">produtos em produção</p>
+          <p class="stat-label"><span data-lang-pt>produtos em produção</span><span data-lang-en hidden>products in production</span></p>
         </div>
         <div>
           <p class="stat-num">40+</p>
-          <p class="stat-label">anos de experiência</p>
+          <p class="stat-label"><span data-lang-pt>anos de experiência</span><span data-lang-en hidden>years of experience</span></p>
         </div>
         <div>
           <p class="stat-num">&lt;6</p>
-          <p class="stat-label">meses do zero ao ar</p>
+          <p class="stat-label"><span data-lang-pt>meses do zero ao ar</span><span data-lang-en hidden>months from zero to live</span></p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SOBRE -->
-  <section id="sobre">
+  <!-- WHY MOST SOFTWARE FAILS -->
+  <section id="why">
     <div class="container">
-      <p class="section-label">Quem está por trás</p>
-      <h2>Oscar Yonesake</h2>
-      <div class="sobre-grid">
-        <div class="sobre-texto">
-          <figure class="sobre-foto">
-            <img src="oscar-cachoeira.jpg" alt="Oscar Yonesake em uma trilha, parado diante de uma cachoeira" />
-            <figcaption>Entre trilhas e novos aprendizados</figcaption>
-          </figure>
-          <p>Passei anos tentando criar produtos com inteligência artificial — cursos de n8n, Supabase, automações, APIs. A barreira nunca foi capacidade. Foi linguagem: termos e ferramentas feitos por programadores para programadores. Eu entendia o problema. Não atravessava a camada técnica no meio do caminho.</p>
-          <p>O que mudou foi a velocidade da evolução dos modelos — OpenAI, Google Gemini, Claude, os modelos chineses. Essa corrida abriu algo que não existia antes: construir soluções reais conversando sobre problemas reais, sem dominar a linguagem dos programadores.</p>
-          <p>Em janeiro de 2026 tentei de novo. Em menos de seis meses, três produtos rodando em produção real — sem equipe de engenharia, sem sócio técnico.</p>
-
-          <div class="sobre-destaque">
-            <p>Inteligência artificial é uma ferramenta extraordinária. Como toda ferramenta, o resultado depende de quem a direciona — e para onde.</p>
-            <p>Dominar os processos de trabalho, saber onde uma operação trava, onde o tempo é desperdiçado, onde o controle falha — esse conhecimento vem de décadas dentro das empresas. É ele que transforma IA em solução real, não em demonstração bonita.</p>
-          </div>
-
-          <p>Tenho 70 anos e mais de quatro décadas de carreira em gestão e processos. Há muita gente na minha posição — com experiência acumulada e a sensação de que IA é território de jovens programadores. Não é. Essa barreira está desaparecendo rapidamente.</p>
-          <p class="sobre-conclusao">A YoneAI nasceu dessa descoberta.</p>
+      <div data-lang-pt>
+        <p class="section-label">Por que a maioria do software falha</p>
+        <p class="lede">Raramente é o código. É o encaixe.</p>
+        <div class="prose">
+          <p>Em décadas atuando dentro de operações reais — calçados, eletrônicos, utensílios, metalurgia, defesa — eu vi o mesmo padrão se repetir: software falha não por erro de engenharia, mas porque quem constrói nunca entendeu de fato os dados ou o processo por trás. Software padrão é padrão. Encaixar isso no jeito real que o negócio funciona raramente é simples.</p>
+        </div>
+      </div>
+      <div data-lang-en hidden>
+        <p class="section-label">Why most software fails</p>
+        <p class="lede">It's rarely the code. It's the fit.</p>
+        <div class="prose">
+          <p>Across decades working inside real operations — footwear, electronics, kitchenware, metallurgy, defense — I kept seeing the same pattern: software fails not because of bad engineering, but because the people building it never understood the data or the process underneath it. Standard software is standard. Fitting it to how a business actually runs rarely is.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PRODUTOS -->
-  <section id="produtos">
+  <!-- HOW I WORK -->
+  <section id="how" class="alt">
     <div class="container">
-      <p class="section-label">O que construímos</p>
-      <h2>Três produtos.<br>Três problemas reais resolvidos.</h2>
-      <div class="produtos-grid">
+      <div data-lang-pt><p class="section-label">Como eu trabalho</p><h2>Diagnosticar antes de construir — sempre.</h2></div>
+      <div data-lang-en hidden><p class="section-label">How I work</p><h2>Diagnose before building — always.</h2></div>
 
-        <!-- Mentor Kenichi -->
-        <div class="produto-card destaque">
-          <div class="produto-card-header">
-            <div>
-              <p class="produto-numero">01 — Principal</p>
-              <p class="produto-nome">Mentor Kenichi</p>
-            </div>
-            <span class="produto-badge"><span class="badge-dot"></span>Em produção</span>
-          </div>
-          <p class="produto-desc">Uma versão virtual de mim como consultor empresarial — décadas de experiência em gestão e processos, disponível para donos de pequenas e médias empresas que querem aplicar inteligência artificial nos seus negócios. Orientação prática, personalizada, sem precisar entender de tecnologia.</p>
-          <div class="produto-resultado"><strong>24/7</strong> consultoria disponível, sem agenda</div>
-          <a href="https://mentorkenichi.com" target="_blank" rel="noopener" class="produto-link">mentorkenichi.com →</a>
+      <div class="steps">
+        <div class="step">
+          <p class="step-num">01</p>
+          <p class="step-title"><span data-lang-pt>Diagnosticar</span><span data-lang-en hidden>Diagnose</span></p>
+          <p class="step-desc"><span data-lang-pt>Mapear o processo real, não o que está no papel.</span><span data-lang-en hidden>Map the real process, not the one on paper.</span></p>
         </div>
-
-        <!-- Beckoniq -->
-        <div class="produto-card">
-          <div class="produto-card-header">
-            <div>
-              <p class="produto-numero">02</p>
-              <p class="produto-nome">Beckoniq</p>
-            </div>
-            <span class="produto-badge"><span class="badge-dot"></span>Em produção</span>
-          </div>
-          <p class="produto-desc">Plataforma de gestão de conteúdo para redes sociais. Gera posts completos — texto, imagem, hashtags e legenda — e entrega por email. O cliente publica com um clique, sem precisar aprender nenhuma ferramenta.</p>
-          <div class="produto-resultado"><strong>1 clique</strong> do conteúdo pronto à publicação</div>
-          <a href="https://beckoniq.com" target="_blank" rel="noopener" class="produto-link">beckoniq.com →</a>
+        <div class="step">
+          <p class="step-num">02</p>
+          <p class="step-title"><span data-lang-pt>Redesenhar</span><span data-lang-en hidden>Redesign</span></p>
+          <p class="step-desc"><span data-lang-pt>Corrigir o processo, não só o sintoma.</span><span data-lang-en hidden>Fix the process itself, not just the symptom.</span></p>
         </div>
-
-        <!-- ReceptIA -->
-        <div class="produto-card pequeno">
-          <div style="flex: 1; min-width: 200px;">
-            <p class="produto-numero">03 — B2B</p>
-            <p class="produto-nome menor">ReceptIA</p>
-            <p class="produto-desc">Automação de recepção para clínicas de radiologia odontológica. A recepcionista fotografa o documento do paciente — a IA lê, extrai os dados e cadastra automaticamente no sistema da clínica.</p>
-          </div>
-          <span class="produto-badge"><span class="badge-dot"></span>4 clínicas ativas</span>
+        <div class="step">
+          <p class="step-num">03</p>
+          <p class="step-title"><span data-lang-pt>Construir</span><span data-lang-en hidden>Build</span></p>
+          <p class="step-desc"><span data-lang-pt>Aplicar IA só onde ela realmente agrega.</span><span data-lang-en hidden>Apply AI only where it earns its place.</span></p>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- CONTATO -->
-  <section id="contato">
+  <!-- PROOF -->
+  <section id="proof">
     <div class="container">
-      <p class="section-label">Fale comigo</p>
-      <h2>Quer conversar?</h2>
-      <p class="contato-sub">Se você quer conhecer o Mentor Kenichi, tem um problema de processo que acredita que a IA pode resolver, ou quer simplesmente trocar uma ideia — me encontre aqui.</p>
+      <div data-lang-pt><p class="section-label">Prova</p><h2>Um exemplo de como isso funciona na prática.</h2></div>
+      <div data-lang-en hidden><p class="section-label">Proof</p><h2>An example of how this plays out in practice.</h2></div>
+
+      <div class="proof-card">
+        <div data-lang-pt>
+          <div class="proof-row"><p class="proof-label">O problema</p><p>Uma rede de atendimento com múltiplas unidades perdia tempo e precisão com entrada de dados manual e duplicada na recepção — cada unidade fazendo do seu jeito.</p></div>
+          <div class="proof-row"><p class="proof-label">O que construí</p><p>Um sistema de atendimento assistido por IA, implantado em várias unidades, estendido para WhatsApp na comunicação com o cliente, com checkpoint de aprovação humana antes de qualquer envio.</p></div>
+          <div class="proof-row"><p class="proof-label">O resultado</p><p>Processo consistente entre as unidades, menos entrada manual, resposta mais rápida — sem tirar a supervisão humana de nada que chega ao cliente.</p></div>
+        </div>
+        <div data-lang-en hidden>
+          <div class="proof-row"><p class="proof-label">The problem</p><p>A multi-location service business was losing time and accuracy to manual, duplicated data entry at reception — every unit doing it differently.</p></div>
+          <div class="proof-row"><p class="proof-label">What I built</p><p>An AI-assisted intake system deployed across multiple locations, extending into WhatsApp for client communication, with a human-approval checkpoint before anything reaches the client.</p></div>
+          <div class="proof-row"><p class="proof-label">The result</p><p>Consistent process across every location, less manual entry, faster response times — without removing human oversight from anything client-facing.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT I BRING -->
+  <section id="bring" class="alt">
+    <div class="container">
+      <div data-lang-pt><p class="section-label">O que eu trago</p><h2>Operador, gestor de processos e construtor técnico — na mesma pessoa.</h2></div>
+      <div data-lang-en hidden><p class="section-label">What I bring</p><h2>Operator, process manager and technical builder — in one person.</h2></div>
+
+      <div class="bring-grid">
+        <div class="bring-card">
+          <p class="bring-tag">OP</p>
+          <div data-lang-pt><p class="bring-title">Vivência de operador</p><p class="bring-desc">Décadas em multinacionais (calçados, eletrônicos, utensílios, metalurgia, defesa); formação executiva pela Fundação Dom Cabral.</p></div>
+          <div data-lang-en hidden><p class="bring-title">Operator background</p><p class="bring-desc">Decades inside multinational manufacturing (footwear, electronics, kitchenware, metallurgy, defense); executive education at Fundação Dom Cabral.</p></div>
+        </div>
+        <div class="bring-card">
+          <p class="bring-tag">PM</p>
+          <div data-lang-pt><p class="bring-title">Gestão de processos</p><p class="bring-desc">Diagnosticar e redesenhar como o negócio realmente funciona, antes de tocar em qualquer ferramenta.</p></div>
+          <div data-lang-en hidden><p class="bring-title">Process management</p><p class="bring-desc">Diagnosing and redesigning how a business actually runs, before touching any tooling.</p></div>
+        </div>
+        <div class="bring-card">
+          <p class="bring-tag">EX</p>
+          <div data-lang-pt><p class="bring-title">Execução técnica</p><p class="bring-desc">Do design à produção — Next.js, Vercel, Supabase, integrações de IA.</p></div>
+          <div data-lang-en hidden><p class="bring-title">Technical execution</p><p class="bring-desc">Full stack, design to production — Next.js, Vercel, Supabase, AI integrations.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT I'VE BUILT -->
+  <section id="built">
+    <div class="container">
+      <div data-lang-pt>
+        <p class="section-label">O que eu construí</p>
+        <h2>Provas de capacidade, não só palavras.</h2>
+        <p class="built-lede">Eu não só oriento — eu entrego. Estes são produtos que projetei e construí do início ao fim.</p>
+      </div>
+      <div data-lang-en hidden>
+        <p class="section-label">What I've built</p>
+        <h2>Proof of capability, not just words.</h2>
+        <p class="built-lede">I don't just advise — I ship. These are products I designed and built end to end.</p>
+      </div>
+
+      <div class="built-grid">
+        <div class="built-card">
+          <div>
+            <p class="built-name">Mentor Kenichi</p>
+            <p class="built-desc" data-lang-pt>Consultoria virtual baseada em IA para pequenas e médias empresas, construída sobre minha própria vivência operacional.</p>
+            <p class="built-desc" data-lang-en hidden>An AI-driven virtual consulting product for small and mid-size businesses, built on my own operating experience.</p>
+          </div>
+          <a href="https://mentorkenichi.com" target="_blank" rel="noopener" class="built-link"><span data-lang-pt>Ver produto</span><span data-lang-en hidden>View product</span> →</a>
+        </div>
+        <div class="built-card">
+          <div>
+            <p class="built-name">Beckoniq</p>
+            <p class="built-desc" data-lang-pt>Plataforma de gestão de conteúdo para redes sociais, com geração automática em um clique.</p>
+            <p class="built-desc" data-lang-en hidden>A social media content management platform with one-click, AI-generated content.</p>
+          </div>
+          <a href="https://beckoniq.com" target="_blank" rel="noopener" class="built-link"><span data-lang-pt>Ver produto</span><span data-lang-en hidden>View product</span> →</a>
+        </div>
+        <div class="built-card">
+          <div>
+            <p class="built-name">ReceptIA</p>
+            <p class="built-desc" data-lang-pt>O sistema de atendimento assistido por IA do case acima, em produção em várias unidades.</p>
+            <p class="built-desc" data-lang-en hidden>The AI-assisted intake system referenced in the case study above, live in production across multiple locations.</p>
+          </div>
+          <span class="built-nolink" data-lang-pt>B2B — sem link público</span>
+          <span class="built-nolink" data-lang-en hidden>B2B — no public link</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT I'M LOOKING FOR -->
+  <section id="looking" class="alt">
+    <div class="container">
+      <div data-lang-pt>
+        <p class="section-label">O que eu procuro</p>
+        <h2>O que eu procuro</h2>
+        <p class="lede" style="font-style:normal;">Como consultor, eu procuro um tipo de problema: operações que precisam funcionar melhor — mais rápidas, mais baratas, mais consistentes, com mais qualidade — onde a solução exige entender o processo de verdade antes de mexer em qualquer tecnologia.</p>
+        <div class="prose"><p>Meu caminho é sempre o mesmo: diagnosticar o processo real, redesenhar o que está quebrado, e só então aplicar IA onde ela realmente agrega — nunca IA por IA.</p><p>Na prática, isso costuma aparecer assim:</p></div>
+        <ul class="looking-list">
+          <li>A mesma informação digitada duas ou três vezes, por pessoas diferentes, em sistemas diferentes.</li>
+          <li>Qualidade de atendimento que muda dependendo do turno ou de quem está atendendo.</li>
+          <li>Uma pessoa concentrando conhecimento operacional demais na cabeça — um risco se ela sair.</li>
+          <li>Números que realmente importam sendo mais difíceis de tirar dos seus sistemas do que deveriam.</li>
+        </ul>
+        <p class="looking-close">Se algo disso soa familiar, essa é a conversa que eu quero ter.</p>
+      </div>
+      <div data-lang-en hidden>
+        <p class="section-label">What I'm looking for</p>
+        <h2>What I'm looking for</h2>
+        <p class="lede" style="font-style:normal;">As a consultant, I look for one kind of problem: operations that need to run better — faster, cheaper, more consistent, higher quality — where the fix requires actually understanding the process before touching any technology.</p>
+        <div class="prose"><p>My way in is always the same: diagnose the real process, redesign what's broken, then apply AI wherever it earns its place — never AI for its own sake.</p><p>In practice, that usually looks like:</p></div>
+        <ul class="looking-list">
+          <li>The same information typed into two or three different systems, by two or three different people.</li>
+          <li>Service quality that depends on which shift or which employee is doing the work.</li>
+          <li>One person holding too much operational knowledge in their head — a risk if they ever leave.</li>
+          <li>Numbers that actually matter being harder to pull out of your own systems than they should be.</li>
+        </ul>
+        <p class="looking-close">If any of that sounds familiar, that's the conversation I want to have.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div data-lang-pt>
+        <p class="section-label">Fale comigo</p>
+        <h2>Vamos conversar sobre o que está realmente travado.</h2>
+        <p class="contato-sub">Se você tem um problema de operação, prazo, custo ou qualidade que acredita que IA pode ajudar a resolver — ou só quer trocar uma ideia — me encontre aqui.</p>
+      </div>
+      <div data-lang-en hidden>
+        <p class="section-label">Get in touch</p>
+        <h2>Let's talk about what's actually stuck.</h2>
+        <p class="contato-sub">If you have an operations, timeline, cost, or quality problem you think AI could help solve — or just want to compare notes — find me here.</p>
+      </div>
       <div class="contato-btns">
-        <a href="https://mentorkenichi.com" target="_blank" rel="noopener" class="btn-primary">Conheça o Mentor Kenichi →</a>
+        <a href="mailto:oscar@yoneai.com" class="btn-primary">oscar@yoneai.com</a>
         <a href="https://linkedin.com/in/mentor-kenichi" target="_blank" rel="noopener" class="btn-outline">LinkedIn</a>
-        <a href="mailto:yonesake@gmail.com" class="btn-outline">yonesake@gmail.com</a>
       </div>
     </div>
   </section>
@@ -700,7 +602,8 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
-      <p>© 2026 YoneAI — Oscar Yonesake · São Paulo, Brasil</p>
+      <p data-lang-pt>© 2026 Oscar Yonesake · São Paulo, Brasil · Atuação remota, para qualquer lugar</p>
+      <p data-lang-en hidden>© 2026 Oscar Yonesake · São Paulo, Brazil · Available remotely, worldwide</p>
       <p>
         <a href="https://mentorkenichi.com" target="_blank" rel="noopener">Mentor Kenichi</a>
         &nbsp;·&nbsp;
@@ -708,6 +611,39 @@
       </p>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      var TITLES = {
+        pt: "Oscar Yonesake — Executivo Operacional. Construtor de Sistemas de IA.",
+        en: "Oscar Yonesake — Executive Operator. AI Systems Builder."
+      };
+      var DESCS = {
+        pt: "40 anos gerindo operações em multinacionais. Hoje projeto e construo os sistemas de IA que realmente se encaixam em como o negócio funciona. Disponível para consultoria e projetos remotos.",
+        en: "40 years running operations across multinational manufacturing. Now I design and build the AI systems that fit how businesses actually work. Available for remote freelance and contract work."
+      };
+
+      function applyLang(lang) {
+        document.documentElement.setAttribute('lang', lang === 'en' ? 'en' : 'pt-BR');
+        document.querySelectorAll('[data-lang-pt]').forEach(function (el) { el.hidden = lang !== 'pt'; });
+        document.querySelectorAll('[data-lang-en]').forEach(function (el) { el.hidden = lang !== 'en'; });
+        document.getElementById('doc-title').textContent = TITLES[lang];
+        document.getElementById('doc-desc').setAttribute('content', DESCS[lang]);
+        document.getElementById('lang-toggle').textContent = lang === 'pt' ? 'EN' : 'PT';
+        try { localStorage.setItem('yoneai-lang', lang); } catch (e) {}
+      }
+
+      var saved;
+      try { saved = localStorage.getItem('yoneai-lang'); } catch (e) { saved = null; }
+      var initial = saved || (navigator.language && navigator.language.toLowerCase().indexOf('pt') === 0 ? 'pt' : 'en');
+      applyLang(initial);
+
+      document.getElementById('lang-toggle').addEventListener('click', function () {
+        var current = document.getElementById('lang-toggle').textContent === 'EN' ? 'pt' : 'en';
+        applyLang(current === 'pt' ? 'en' : 'pt');
+      });
+    })();
+  </script>
 
 </body>
 </html>
